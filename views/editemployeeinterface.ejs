@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.datepicker').datepicker()
+        });
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="maincontainer">
+        <div class="box z-depth-3">
+            <div class="row">
+                <div col s6 class="heading">
+                    Employee Register
+                </div>
+            </div>
+            <div class="row">
+                <form class="col s12" action="/employee/editEmployeeRecord" method="post">
+                    <input type="hidden" value="<%=result.employeeid%>" name="eid" />
+                    <div class="row">
+                        <div class="input-field col s4">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input name="firstname" value="<%=result.employeename.split(' ')[0]%>" id="firstname"
+                                type="text" class="validate">
+                            <label for="firstname">First Name</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input name="lastname" id="lastname" value="<%=result.employeename.split(' ')[1]%>"
+                                type="text" class="validate">
+                            <label for="lastname">Last Name</label>
+                        </div>
+                        <div class="input-field col s4">
+                            <i class="material-icons prefix">event</i>
+                            <input type="text" id="dob" name="dob" value="<%=result.dob%>" class="datepicker">
+                            <label for="dob">Birth Date</label>
+                        </div>
+                    </div>
+                    <% var male=result.gender==='male' ?'checked':''%>
+                        <% var female=result.gender==='female' ?'checked':'' %>
+                            <div class="row">
+                                <div class="input-field col s4" style="display:flex;justify-content:space-around;">
+                                    <p>
+                                        <label>
+                                            <input name="gender" value="Male" type="radio" <%=male%> />
+                                            <span>Male</span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <label>
+                                            <input name="gender" value="Female" type="radio" <%=female%> />
+                                            <span>Female</span>
+                                        </label>
+                                    </p>
+                                </div>
+                                <div class="input-field col s4">
+                                    <i class="material-icons prefix">phone</i>
+                                    <input value="<%=result.contactnumber%>" name="contactno" id="contactno"
+                                        type="number" class="validate">
+                                    <label for="contactno">Mobile Number</label>
+                                </div>
+                                <div class="input-field col s4">
+                                    <i class="material-icons prefix">mail</i>
+                                    <input value="<%=result.emailaddress%>" name="emailaddress" id="emailaddress"
+                                        type="email" name="email" id="email" class="validate">
+                                    <label for="emailaddress">Email Address</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">home</i>
+                                    <input value="<%=result.address%>" name="address" id="address" type="text"
+                                        class="validate">
+                                    <label for="address">Address</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6 left-align">
+                                    <select id="state" name="state">
+                                        <option value="" disabled selected>Choose your State</option>
+                                        <option selected value="<%=result.state%>">
+                                            <%=result.sname%>
+                                        </option>
+                                    </select>
+                                    <label>State</label>
+                                </div>
+                                <div class="input-field col s6 left-align">
+                                    <select id="city" name="city">
+                                        <option value="" disabled selected>Choose your City</option>
+                                        <option selected value="<%=result.city%>">
+                                            <%=result.cname%>
+                                        </option>
+                                    </select>
+                                    <label>City</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12" style="display:flex;justify-content:center">
+                                    <button class="btn waves-effect waves-light" type="submit" name="action"
+                                        value="edit">Save Changes
+                                        <i class="material-icons right">check</i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="cols">
+                                    <%if(status===false){%>
+                                        <h6>Failed to edit record</h6>
+
+                                        <%}%>
+                                </div>
+                            </div>
+                </form>
+            </div>
+        </div>
+
+        <!--JavaScript at end of body for optimized loading-->
+        <script src="/javascripts/project.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</html>

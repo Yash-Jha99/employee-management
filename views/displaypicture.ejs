@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <center>
+        <div class="picbox">
+            <form action="editEmployeePicture" method="post" enctype="multipart/form-data">
+                <input type="hidden" value="<%=eid%>" name="eid"><br><br>
+                <input type="hidden" value="<%=picture%>" name="oldpicture"><br><br>
+                <h2>
+                    <%=ename%>
+                </h2>
+                <img class="circle" src="/images/<%=picture%>" width="200"><br><br>
+                <div class="row">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>Select New Picture</span>
+                            <input type="file" name="picture" required>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-field col s6" style="display:flex;justify-content:center">
+                    <button class="btn waves-effect waves-light" type="reset" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </center>
+</body>
+
+</html>

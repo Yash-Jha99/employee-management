@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.datepicker').datepicker()
+        });
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="topBar blue darken-4">
+        <div>Employee Dashboard</div>
+        <a href="/employee/employeeinterface">
+            <div class="addEmployee">Add Employee</div>
+        </a>
+    </div>
+    <div class="content">
+        <% if(result.length===0){ %>
+            <h1 style="font-weight: bold;">No Employee Found</h1>
+            <%}else{%>
+                <div class="tablebox z-depth-3">
+                    <table class="striped centered">
+                        <thead>
+                            <tr>
+                                <th>Employee Id</th>
+                                <th>Picture</th>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Birth Date</th>
+                                <th>Contact / Details</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <%result.map(item=>{%>
+                                <tr>
+                                    <td>
+                                        <%=item.employeeid%>
+                                    </td>
+                                    <td><a
+                                            href="/employee/displayPicture?eid=<%=item.employeeid%>&ename=<%=item.employeename%>&pic=<%=item.picture%>">
+                                            <img class="circle" src="/images/<%=item.picture%>" width="50"></a>
+                                    </td>
+                                    <td>
+                                        <%=item.employeename%>
+                                    </td>
+                                    <td>
+                                        <%=item.gender%>
+                                    </td>
+                                    <td>
+                                        <%=item.dob%>
+                                    </td>
+                                    <td>
+                                        <%=item.emailaddress%><br>
+                                            <%=item.contactnumber%>
+                                    </td>
+                                    <td>
+                                        <%=item.address%><br>
+                                            <%=item.cname.toLowerCase()%>, <%=item.sname.toLowerCase()%>
+                                    </td>
+                                    <td><a class="edit" href="/employee/editEmployee?eid=<%=item.employeeid%>">Edit </a>
+                                        <a class="delete"
+                                            href="/employee/editEmployeeRecord?eid=<%=item.employeeid%>">Delete
+                                        </a>
+                                    </td>
+                                </tr>
+                                <%})%>
+                        </tbody>
+                    </table>
+                </div>
+                <%}%>
+    </div>
+</body>
+
+</html>

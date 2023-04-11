@@ -1,0 +1,99 @@
+.maincontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bbdefb;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bbdefb;
+  height: calc(100vh - 60px);
+}
+
+.box {
+  width: 800px;
+  padding: 10px;
+  background-color: white;
+}
+
+.tablebox {
+  width: 1200px;
+  padding: 10px;
+  background-color: white;
+  height: 91%;
+  border-radius: 8px;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.picbox {
+  width: 1000px;
+  padding: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboardBox {
+  padding: 40px;
+  display: flex;
+  justify-content: space-around;
+  background-color: #bbdefb;
+  height: 100vh;
+}
+
+.topBar {
+  padding: 0px 40px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 24px;
+  color: white;
+}
+
+.heading {
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.addEmployee {
+  background: #4cd137;
+  padding: 3px 12px;
+  border-radius: 6px;
+  color: white;
+  font-size: 20px;
+}
+
+.result div {
+  font-size: 20px;
+  margin: 10px;
+}
+.row {
+  margin: 7px 4px;
+}
+
+.edit {
+  background: #0097e6;
+  padding: 3px 12px;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  margin-right: 10px;
+}
+.delete {
+  background: #eb2f06;
+  padding: 3px 12px;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+}
